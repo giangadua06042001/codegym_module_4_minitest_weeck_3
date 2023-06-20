@@ -1,6 +1,7 @@
 package com.example.minitest_3.controller;
 
 import com.example.minitest_3.model.Painting;
+import com.example.minitest_3.service.paintingCatalogDetail.IPaintingCatalogDetailService;
 import com.example.minitest_3.service.paintingService.IPaintingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import java.util.Optional;
 public class PaintingController {
     @Autowired
     private IPaintingService ipainting;
+    @Autowired
+    private IPaintingCatalogDetailService paintingCatalogDetailService;
     @PostMapping
     public ResponseEntity<Painting>savePainting(@RequestBody Painting painting){
         return new ResponseEntity<>(ipainting.save(painting), HttpStatus.OK);
